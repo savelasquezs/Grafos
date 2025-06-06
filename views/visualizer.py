@@ -1,5 +1,6 @@
 import turtle
 import math
+from models import Graph
 
 
 class GraphVisualizer:
@@ -110,7 +111,7 @@ class GraphVisualizer:
        
       
 
-    def visualize_graph(self, graph):
+    def visualize_graph(self, graph:Graph):
         """Visualizamos el grafico completo del grafo"""
         # Calculamos las posiciones de los nodos
         self.calculate_node_positions(graph.num_nodes)

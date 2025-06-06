@@ -1,12 +1,9 @@
-from typing import Dict, List, Set, Optional
-from dataclasses import dataclass
+from typing import Dict, Set, Optional
+from models import Node
+
 from collections import defaultdict
 
-@dataclass
-class Node:
-    """Representa un nodo en el grafo con un ID y datos opcionales."""
-    id: int
-    data: Optional[dict] = None
+
 
 class Graph:
     """Implementación de un grafo dirigido usando una lista de adyacencia."""

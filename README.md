@@ -1,72 +1,88 @@
 # Visualizador de Grafos Dirigidos
 
-Este proyecto implementa un visualizador de grafos dirigidos en Python. Permite crear y mostrar grafos de manera interactiva usando la biblioteca Turtle Graphics.
+Este proyecto implementa un visualizador interactivo de grafos dirigidos utilizando Python y la biblioteca Turtle para la visualización gráfica. El proyecto sigue una arquitectura MVC (Modelo-Vista-Controlador) y está diseñado para crear y visualizar grafos circulares de manera intuitiva.
+
+## Características
+
+- Implementación de grafos dirigidos usando listas de adyacencia
+- Visualización gráfica interactiva de grafos
+- Creación automática de grafos circulares
+- Interfaz gráfica usando Turtle
+- Estructura de proyecto modular y bien organizada
 
 ## Estructura del Proyecto
 
-El proyecto está organizado en varios archivos:
-
-- `graph.py`: Contiene la implementación básica del grafo dirigido
-  - Clase `Node`: Representa un nodo con un ID y datos opcionales
-  - Clase `Graph`: Implementa un grafo dirigido usando lista de adyacencia
-    - Métodos para agregar/eliminar nodos y conexiones
-    - Métodos para consultar conexiones y datos de nodos
-
-- `circleGraph.py`: Crea un grafo de ejemplo con 10 nodos conectados en círculo
-  - Función `create_circle_grapth()`: Genera un grafo circular donde cada nodo apunta al siguiente
-
-- `visualize_graph.py`: Implementa la visualización del grafo
-  - Clase `GraphVisualizer`: Dibuja el grafo usando Turtle Graphics
-    - Coloca los nodos en círculo
-    - Dibuja flechas entre nodos conectados
-    - Muestra los IDs de los nodos
-
-- `main.py`: Punto de entrada del programa
-  - Crea un grafo circular
-  - Lo muestra en pantalla
-  - Mantiene la ventana abierta hasta que el usuario la cierre
+```
+.
+├── controllers/         # Controladores que coordinan la lógica de la aplicación
+│   ├── __init__.py
+│   └── graphController.py
+├── models/             # Modelos de datos
+│   ├── __init__.py
+│   ├── graph.py       # Implementación del grafo
+│   └── node.py        # Implementación de nodos
+├── services/          # Servicios que implementan la lógica de negocio
+│   ├── __init__.py
+│   ├── graphService.py
+│   └── visualizationService.py
+├── views/             # Componentes de visualización
+│   ├── __init__.py
+│   └── visualizer.py
+├── main.py           # Punto de entrada de la aplicación
+├── requirements.txt  # Dependencias del proyecto
+└── README.md        # Este archivo
+```
 
 ## Requisitos
 
-Para ejecutar el proyecto necesitas:
+El proyecto solo utiliza módulos de la biblioteca estándar de Python, por lo que no se requieren dependencias externas.
 
-- Python 3.6 o superior
-- Biblioteca `turtle` (incluida en Python)
+## Cómo Ejecutar
 
-## Cómo Usar
-
-1. Asegúrate de tener Python instalado
-2. Clona o descarga este repositorio
-3. Ejecuta el programa principal:
+1. Asegúrate de tener Python 3.x instalado
+2. Clona este repositorio
+3. Ejecuta el archivo principal:
    ```bash
    python main.py
    ```
 
-## Ejemplo de Uso
+## Funcionalidades
 
-El programa mostrará una ventana con:
-- 10 nodos numerados del 0 al 9
-- Los nodos están colocados en círculo
-- Cada nodo tiene una flecha que apunta a los siguentes tres nodos
-- El último nodo (9) apunta al primero (0) y a los siguientes 2 (1 y 2 )
+### Grafo Dirigido
+- Implementación eficiente usando listas de adyacencia
+- Soporte para nodos con datos adicionales
+- Operaciones básicas: agregar/eliminar nodos y aristas
+- Consultas de vecindad y existencia de aristas
 
-## Características
+### Visualización
+- Representación gráfica interactiva
+- Layout circular automático
+- Nodos numerados y aristas con flechas
+- Ventana gráfica redimensionable (800x600 por defecto)
 
-- Visualización interactiva usando Turtle Graphics
-- Nodos claramente etiquetados
-- Flechas que muestran las conexiones entre nodos
-- Diseño circular para mejor visualización
-- Código comentado en español para fácil entendimiento
+### Grafo Circular
+El proyecto incluye una implementación de grafo circular donde:
+- Se crean 10 nodos
+- Cada nodo se conecta con los siguientes 3 nodos
+- Las conexiones son circulares (el último nodo se conecta con los primeros)
 
-## Estructura del Grafo
+## Arquitectura
 
-El grafo de ejemplo tiene la siguiente estructura:
-- 10 nodos (0-9)
-- Cada nodo apunta a los  siguientes tres nodos en secuencia
-- El nodo 9 apunta al nodo 0,1 y 2 cerrando el círculo
+### Modelo (models/)
+- `Graph`: Implementa la estructura de datos del grafo
+- `Node`: Representa los nodos del grafo
 
+### Vista (views/)
+- `GraphVisualizer`: Maneja la visualización gráfica usando Turtle
+
+### Controlador (controllers/)
+- `GraphController`: Coordina la interacción entre el modelo y la vista
+
+### Servicios (services/)
+- `GraphService`: Implementa la lógica de creación y manipulación de grafos
+- `VisualizationService`: Gestiona la visualización de los grafos
 
 
 ## Licencia
 
-Este proyecto está bajo la Licencia MIT. Ver el archivo LICENSE para más detalles. 
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles. 
