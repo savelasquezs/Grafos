@@ -9,6 +9,7 @@ Este proyecto implementa un visualizador interactivo de grafos dirigidos utiliza
 - Creación automática de grafos circulares
 - Interfaz gráfica usando Turtle
 - Estructura de proyecto modular y bien organizada
+- Componentes de visualización reutilizables y extensibles
 
 ## Estructura del Proyecto
 
@@ -27,7 +28,14 @@ Este proyecto implementa un visualizador interactivo de grafos dirigidos utiliza
 │   └── visualizationService.py
 ├── views/             # Componentes de visualización
 │   ├── __init__.py
-│   └── visualizer.py
+│   ├── visualizer.py  # Visualizador principal del grafo
+│   └── components/    # Componentes modulares de visualización
+│       ├── __init__.py
+│       ├── point.py           # Representación de puntos 2D
+│       ├── turtle_manager.py  # Gestión del turtle y pantalla
+│       ├── layout_manager.py  # Cálculo de posiciones de nodos
+│       ├── node_drawer.py     # Dibujo de nodos
+│       └── arrow_drawer.py    # Dibujo de flechas
 ├── main.py           # Punto de entrada de la aplicación
 ├── requirements.txt  # Dependencias del proyecto
 └── README.md        # Este archivo
@@ -59,6 +67,12 @@ El proyecto solo utiliza módulos de la biblioteca estándar de Python, por lo q
 - Layout circular automático
 - Nodos numerados y aristas con flechas
 - Ventana gráfica redimensionable (800x600 por defecto)
+- Componentes modulares y reutilizables:
+  - `Point`: Representación de coordenadas 2D
+  - `TurtleManager`: Gestión del estado y configuración de Turtle
+  - `LayoutManager`: Cálculo de posiciones en layout circular
+  - `NodeDrawer`: Dibujo de nodos y etiquetas
+  - `ArrowDrawer`: Dibujo de flechas y sus puntas
 
 ### Grafo Circular
 El proyecto incluye una implementación de grafo circular donde:
@@ -73,7 +87,13 @@ El proyecto incluye una implementación de grafo circular donde:
 - `Node`: Representa los nodos del grafo
 
 ### Vista (views/)
-- `GraphVisualizer`: Maneja la visualización gráfica usando Turtle
+- `GraphVisualizer`: Coordina la visualización del grafo
+- Componentes modulares en `views/components/`:
+  - `Point`: Dataclass para coordenadas 2D
+  - `TurtleManager`: Maneja la configuración de Turtle
+  - `LayoutManager`: Calcula posiciones de nodos
+  - `NodeDrawer`: Dibuja nodos y etiquetas
+  - `ArrowDrawer`: Dibuja flechas y sus puntas
 
 ### Controlador (controllers/)
 - `GraphController`: Coordina la interacción entre el modelo y la vista
@@ -81,7 +101,6 @@ El proyecto incluye una implementación de grafo circular donde:
 ### Servicios (services/)
 - `GraphService`: Implementa la lógica de creación y manipulación de grafos
 - `VisualizationService`: Gestiona la visualización de los grafos
-
 
 ## Licencia
 
