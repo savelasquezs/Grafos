@@ -47,8 +47,8 @@ Para ejecutar el proyecto necesitas:
 El programa mostrará una ventana con:
 - 10 nodos numerados del 0 al 9
 - Los nodos están colocados en círculo
-- Cada nodo tiene una flecha que apunta al siguiente
-- El último nodo (9) apunta al primero (0)
+- Cada nodo tiene una flecha que apunta a los siguentes tres nodos
+- El último nodo (9) apunta al primero (0) y a los siguientes 2 (1 y 2 )
 
 ## Características
 
@@ -62,16 +62,10 @@ El programa mostrará una ventana con:
 
 El grafo de ejemplo tiene la siguiente estructura:
 - 10 nodos (0-9)
-- Cada nodo apunta al siguiente en secuencia
-- El nodo 9 apunta al nodo 0, cerrando el círculo
+- Cada nodo apunta a los  siguientes tres nodos en secuencia
+- El nodo 9 apunta al nodo 0,1 y 2 cerrando el círculo
 
-## Contribuir
 
-Si quieres contribuir al proyecto:
-1. Haz un fork del repositorio
-2. Crea una rama para tu característica
-3. Haz tus cambios
-4. Envía un pull request
 
 ## Licencia
 
